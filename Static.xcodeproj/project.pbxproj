@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		205812C71DE995A000A6A173 /* ToggleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205812C51DE995A000A6A173 /* ToggleTableViewCell.swift */; };
+		205812C81DE995A000A6A173 /* ToggleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 205812C61DE995A000A6A173 /* ToggleTableViewCell.xib */; };
 		21826AAE1B3F51A100AA9641 /* Static.h in Headers */ = {isa = PBXBuildFile; fileRef = 21826AAD1B3F51A100AA9641 /* Static.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21826AB51B3F51A100AA9641 /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21826AAA1B3F51A100AA9641 /* Static.framework */; };
 		21826ACA1B3F51D000AA9641 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21826AC51B3F51D000AA9641 /* Row.swift */; };
@@ -64,6 +66,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		205812C51DE995A000A6A173 /* ToggleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleTableViewCell.swift; sourceTree = "<group>"; };
+		205812C61DE995A000A6A173 /* ToggleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToggleTableViewCell.xib; sourceTree = "<group>"; };
 		21826AAA1B3F51A100AA9641 /* Static.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Static.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21826AAD1B3F51A100AA9641 /* Static.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Static.h; sourceTree = "<group>"; };
 		21826AAF1B3F51A100AA9641 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 				36748D5A1B5034EC0046F207 /* LaunchScreen.storyboard */,
 				36748D5D1B5034EC0046F207 /* Info.plist */,
 				A706253B1BC81C1400E471EF /* CustomTableViewCell.swift */,
+				205812C51DE995A000A6A173 /* ToggleTableViewCell.swift */,
+				205812C61DE995A000A6A173 /* ToggleTableViewCell.xib */,
 				A706253C1BC81C1400E471EF /* NibTableViewCell.xib */,
 				39DC80491BD96BB0001F04CD /* NibTableViewCell.swift */,
 			);
@@ -325,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36748D5C1B5034EC0046F207 /* LaunchScreen.storyboard in Resources */,
+				205812C81DE995A000A6A173 /* ToggleTableViewCell.xib in Resources */,
 				36748D591B5034EC0046F207 /* Assets.xcassets in Resources */,
 				A706253E1BC81C1400E471EF /* NibTableViewCell.xib in Resources */,
 			);
@@ -367,6 +374,7 @@
 				39DC804A1BD96BB0001F04CD /* NibTableViewCell.swift in Sources */,
 				36748D541B5034EC0046F207 /* ViewController.swift in Sources */,
 				36748D521B5034EC0046F207 /* WindowController.swift in Sources */,
+				205812C71DE995A000A6A173 /* ToggleTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

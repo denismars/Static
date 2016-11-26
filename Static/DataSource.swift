@@ -178,8 +178,10 @@ extension DataSource: UITableViewDataSource {
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let row = row(at: indexPath) {
+        if var row = row(at: indexPath) {
             let tableCell = tableView.dequeueReusableCell(withIdentifier: row.cellIdentifier, for: indexPath)
+            
+            row.cell = tableCell
 
             if let cell = tableCell as? Cell {
                 cell.configure(row: row)
@@ -225,10 +227,11 @@ extension DataSource: UITableViewDataSource {
 
     @objc(tableView:editActionsForRowAtIndexPath:)
     public func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        return row(at: indexPath)?.editActions.map {
+        let currentRow = row(at: indexPath)
+        return currentRow?.editActions.map {
             action in
             let rowAction = UITableViewRowAction(style: action.style, title: action.title) { (_, _) in
-                action.selection?(nil)
+                action.selection?(currentRow?.cell)
             }
 
             // These calls have side effects when setting to nil
@@ -273,13 +276,13 @@ extension DataSource: UITableViewDelegate {
         }
 
         if let row = row(at: indexPath) {
-            row.selection?(nil)
+            row.selection?(row.cell)
         }
     }
 
     public func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         if let row = row(at: indexPath) {
-            row.accessory.selection?(nil)
+            row.accessory.selection?(row.cell)
         }
     }
 }

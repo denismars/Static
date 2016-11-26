@@ -107,6 +107,9 @@ public struct Row: Hashable, Equatable {
 
     /// View to be used for the row.
     public var cellClass: Cell.Type
+    
+    // Cell this row is representing.
+    public var cell: UITableViewCell?
 
     /// Additional information for the row.
     public var context: Context?

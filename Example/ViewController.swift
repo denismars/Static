@@ -34,7 +34,7 @@ class ViewController: TableViewController {
                 Row(text: "Value 1", detailText: "with an image", image: UIImage(named: "Settings"), cellClass: Value1Cell.self),
                 Row(text: "Value 2", detailText: "Detail", cellClass: Value2Cell.self),
                 Row(text: "Subtitle", detailText: "Detail", cellClass: SubtitleCell.self),
-                Row(text: "Button", detailText: "Detail", selection: { [unowned self] in
+                Row(text: "Button", detailText: "Detail", selection: { [unowned self] cell in
                     self.showAlert(title: "Row Selection")
                 }, cellClass: ButtonCell.self),
                 Row(text: "Custom from nib", cellClass: NibTableViewCell.self)
@@ -42,30 +42,35 @@ class ViewController: TableViewController {
             Section(header: "Accessories", rows: [
                 Row(text: "None"),
                 Row(text: "Disclosure Indicator", accessory: .disclosureIndicator),
-                Row(text: "Detail Disclosure Button", accessory: .detailDisclosureButton({ [unowned self] in
+                Row(text: "Detail Disclosure Button", accessory: .detailDisclosureButton({ [unowned self] cell in
                     self.showAlert(title: "Detail Disclosure Button")
                 })),
                 Row(text: "Checkmark", accessory: .checkmark),
-                Row(text: "Detail Button", accessory: .detailButton({ [unowned self] in
+                Row(text: "Detail Button", accessory: .detailButton({ [unowned self] cell in
                     self.showAlert(title: "Detail Button")
                 })),
                 Row(text: "Custom View", accessory: .view(customAccessory))
             ], footer: "Try tapping the ⓘ buttons."),
             Section(header: "Selection", rows: [
-                Row(text: "Tap this row", selection: { [unowned self] in
+                Row(text: "Toggle the button", selection: { [unowned self] cell in
+                    if let cell = cell as? ToggleTableViewCell {
+                        self.showAlert(title: "Toggle is now: \(cell.toggleSwitch.isOn)")
+                    }
+                }, cellClass: ToggleTableViewCell.self, context: ["on": false]),
+                Row(text: "Tap this row", selection: { [unowned self] cell in
                     self.showAlert(title: "Row Selection")
                 }),
-                Row(text: "Tap this row", selection: { [unowned self] in
+                Row(text: "Toggle this row", selection: { [unowned self] cell in
                     let viewController = ViewController()
                     self.navigationController?.pushViewController(viewController, animated: true)
                 })
             ]),
             Section(header: "Editing", rows: [
                 Row(text: "Swipe this row", editActions: [
-                    Row.EditAction(title: "Warn", backgroundColor: .orange, selection: { [unowned self] in
+                    Row.EditAction(title: "Warn", backgroundColor: .orange, selection: { [unowned self] cell in
                         self.showAlert(title: "Warned.")
                     }),
-                    Row.EditAction(title: "Delete", style: .destructive, selection: { [unowned self] in
+                    Row.EditAction(title: "Delete", style: .destructive, selection: { [unowned self] cell in
                         self.showAlert(title: "Deleted.")
                     })
                 ])
