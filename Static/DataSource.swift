@@ -228,7 +228,7 @@ extension DataSource: UITableViewDataSource {
         return row(at: indexPath)?.editActions.map {
             action in
             let rowAction = UITableViewRowAction(style: action.style, title: action.title) { (_, _) in
-                action.selection?()
+                action.selection?(nil)
             }
 
             // These calls have side effects when setting to nil
@@ -273,13 +273,13 @@ extension DataSource: UITableViewDelegate {
         }
 
         if let row = row(at: indexPath) {
-            row.selection?()
+            row.selection?(nil)
         }
     }
 
     public func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         if let row = row(at: indexPath) {
-            row.accessory.selection?()
+            row.accessory.selection?(nil)
         }
     }
 }

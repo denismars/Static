@@ -1,7 +1,7 @@
 import UIKit
 
 /// Row or Accessory selection callback.
-public typealias Selection = () -> Void
+public typealias Selection = (_ cell: UITableViewCell?) -> Void
 
 /// Representation of a table row.
 public struct Row: Hashable, Equatable {
