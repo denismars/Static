@@ -1,7 +1,7 @@
 import UIKit
 
 public class SubtitleCell: UITableViewCell, Cell {
-    public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
     }
 

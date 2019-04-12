@@ -29,7 +29,7 @@ public struct Row: Hashable, Equatable {
         case view(UIView)
 
         /// Table view cell accessory type
-        public var type: UITableViewCellAccessoryType {
+        public var type: UITableViewCell.AccessoryType {
             switch self {
             case .disclosureIndicator: return .disclosureIndicator
             case .detailDisclosureButton(_): return .detailDisclosureButton
@@ -65,7 +65,7 @@ public struct Row: Hashable, Equatable {
         public let title: String
         
         /// Styling for button's action, used primarily for destructive actions.
-        public let style: UITableViewRowActionStyle
+        public let style: UITableViewRowAction.Style
         
         /// Background color of the button.
         public let backgroundColor: UIColor?
@@ -76,7 +76,7 @@ public struct Row: Hashable, Equatable {
         /// Invoked when selecting the action.
         public let selection: Selection?
         
-        public init(title: String, style: UITableViewRowActionStyle = .default, backgroundColor: UIColor? = nil, backgroundEffect: UIVisualEffect? = nil, selection: Selection? = nil) {
+        public init(title: String, style: UITableViewRowAction.Style = .default, backgroundColor: UIColor? = nil, backgroundEffect: UIVisualEffect? = nil, selection: Selection? = nil) {
             self.title = title
             self.style = style
             self.backgroundColor = backgroundColor
@@ -129,8 +129,8 @@ public struct Row: Hashable, Equatable {
         return cellClass.description()
     }
 
-    public var hashValue: Int {
-        return uuid.hashValue
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(uuid)
     }
 
 

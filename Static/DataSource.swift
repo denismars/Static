@@ -119,7 +119,7 @@ public class DataSource: NSObject {
         let oldCount = oldSections.count
         let newCount = sections.count
         let delta = newCount - oldCount
-        let animation = UITableViewRowAnimation.automatic
+        let animation = UITableView.RowAnimation.automatic
 
         tableView.beginUpdates()
 
@@ -206,7 +206,7 @@ extension DataSource: UITableViewDataSource {
     }
 
     public func tableView(_ tableView: UITableView, heightForHeaderInSection sectionIndex: Int) -> CGFloat {
-        return section(at: sectionIndex)?.header?.viewHeight ?? UITableViewAutomaticDimension
+        return section(at: sectionIndex)?.header?.viewHeight ?? UITableView.automaticDimension
     }
 
     public func tableView(_ tableView: UITableView, titleForFooterInSection sectionIndex: Int) -> String? {
@@ -218,7 +218,7 @@ extension DataSource: UITableViewDataSource {
     }
 
     public func tableView(_ tableView: UITableView, heightForFooterInSection sectionIndex: Int) -> CGFloat {
-        return section(at: sectionIndex)?.footer?.viewHeight ?? UITableViewAutomaticDimension
+        return section(at: sectionIndex)?.footer?.viewHeight ?? UITableView.automaticDimension
     }
 
     public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
